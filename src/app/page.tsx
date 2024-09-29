@@ -41,7 +41,7 @@ const HomePage = () => {
       </div>
     );
   return (
-    <div className="grid gap-8 grid-cols-1 md:grid-cols-3 mx-5 lg:mx-20 mt-10">
+    <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-5 lg:mx-20 mt-10">
       {data.punkBidEntereds?.map((bid: any) => (
         <Link href={bid.id} key={bid.id} className="">
           <CardSpotlight className="cursor-pointer h-32 flex flex-col justify-between">
