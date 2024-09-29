@@ -18,7 +18,16 @@ const GET_NFT = gql`
     }
   }
 `;
+
 export const dynamic = "force-dynamic";
+
+const truncateString = (str: string, maxLength = 12) => {
+  if (str.length <= maxLength) return str;
+  const start = str.slice(0, 8);
+  const end = str.slice(-8);
+  return `${start}...${end}`;
+};
+
 const Nft = () => {
   const { nft } = useParams();
 
@@ -47,8 +56,11 @@ const Nft = () => {
         <tbody className="flex w-full flex-col">
           <tr className="flex flex-col lg:flex-row max-w-full lg:justify-between items-center">
             <th className="">ID</th>
-            <td className="line-clamp-1 overflow-hidden">
-              {punkBidEntered.id}
+            <td className="line-clamp-1 overflow-hidden md:whitespace-nowrap">
+              <span className="block md:hidden">
+                {truncateString(punkBidEntered.id)}
+              </span>
+              <span className="hidden md:block">{punkBidEntered.id}</span>
             </td>
           </tr>
           <tr className="flex flex-col lg:flex-row w-full lg:justify-between items-center">
@@ -66,7 +78,14 @@ const Nft = () => {
           </tr>
           <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
             <th>From Address</th>
-            <td>{punkBidEntered.fromAddress}</td>
+            <td className="line-clamp-1 overflow-hidden md:whitespace-nowrap">
+              <span className="block md:hidden">
+                {truncateString(punkBidEntered.fromAddress)}
+              </span>
+              <span className="hidden md:block">
+                {punkBidEntered.fromAddress}
+              </span>
+            </td>
           </tr>
           <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
             <th>Value</th>
@@ -74,7 +93,14 @@ const Nft = () => {
           </tr>
           <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
             <th>Transaction Hash</th>
-            <td>{punkBidEntered.transactionHash}</td>
+            <td className="line-clamp-1 overflow-hidden md:whitespace-nowrap">
+              <span className="block md:hidden">
+                {truncateString(punkBidEntered.transactionHash)}
+              </span>
+              <span className="hidden md:block">
+                {punkBidEntered.transactionHash}
+              </span>
+            </td>
           </tr>
         </tbody>
       </table>
