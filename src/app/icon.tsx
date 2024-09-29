@@ -14,7 +14,7 @@ export default function Icon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 12,
+          fontSize: 18,
           background: "#dd1818",
           width: "100%",
           height: "100%",
