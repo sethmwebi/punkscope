@@ -1,25 +1,41 @@
+// store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import { persistReducer, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage"; // Defaults to localStorage
 import metamaskReducer from "./features/metamask/metamaskSlice";
+import searchReducer from "./features/search/searchSlice";
 
-// Redux persist configuration
+// Redux persist configuration for metamask state
 const persistConfig = {
-  key: "root",
+  key: "metamask",
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, metamaskReducer);
+const persistedMetamaskReducer = persistReducer(persistConfig, metamaskReducer);
 
-const store = configureStore({
-  reducer: {
-    metamask: persistedReducer,
-  },
-});
+export const makeStore = () =>
+  configureStore({
+    reducer: {
+      metamask: persistedMetamaskReducer, // Persisted metamask state
+      search: searchReducer, // Non-persistent search state
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
+  });
 
-export const persistor = persistStore(store);
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
-export default store;
+// Types for state and dispatch
+export type RootState = ReturnType<ReturnType<typeof makeStore>["getState"]>;
+export type AppDispatch = ReturnType<typeof makeStore>["dispatch"];

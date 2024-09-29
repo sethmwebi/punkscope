@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import ApolloProviderWrapper from "@/components/apollo-provider";
 import MetaMaskProviderWrapper from "@/components/metamask-provider";
+import StoreProvider from "@/components/store-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,18 +33,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
-          <ApolloProviderWrapper>
-            <MetaMaskProviderWrapper>
-              <Navbar />
-              {children}
-            </MetaMaskProviderWrapper>
-          </ApolloProviderWrapper>
-        </ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
+            <ApolloProviderWrapper>
+              <MetaMaskProviderWrapper>
+                <Navbar />
+                {children}
+              </MetaMaskProviderWrapper>
+            </ApolloProviderWrapper>
+          </ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   );
