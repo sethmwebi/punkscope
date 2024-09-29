@@ -42,37 +42,39 @@ const Nft = () => {
   const { punkBidEntered } = data;
 
   return (
-    <div className="flex justify-center mt-20">
-      <table>
-        <tbody>
-          <tr>
-            <th className="text-left">ID</th>
-            <td className="text-right">{punkBidEntered.id}</td>
+    <div className="flex items-center mt-20 px-20">
+      <table className="w-full">
+        <tbody className="flex w-full flex-col">
+          <tr className="flex flex-col lg:flex-row max-w-full lg:justify-between items-center">
+            <th className="">ID</th>
+            <td className="line-clamp-1 overflow-hidden">
+              {punkBidEntered.id}
+            </td>
           </tr>
-          <tr>
-            <th className="text-left">Block Number</th>
-            <td className="text-right">{punkBidEntered.blockNumber}</td>
+          <tr className="flex flex-col lg:flex-row w-full lg:justify-between items-center">
+            <th>Block Number</th>
+            <td>{punkBidEntered.blockNumber}</td>
           </tr>
-          <tr>
-            <th className="text-left">Block Timestamp</th>
-            <td className="text-right">
+          <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
+            <th>Block Timestamp</th>
+            <td>
               {format(
                 new Date(punkBidEntered.blockTimestamp * 1000),
                 "MMMM dd, yyyy HH:mm:ss",
               )}
             </td>
           </tr>
-          <tr>
-            <th className="text-left">From Address</th>
-            <td className="text-right">{punkBidEntered.fromAddress}</td>
+          <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
+            <th>From Address</th>
+            <td>{punkBidEntered.fromAddress}</td>
           </tr>
-          <tr>
-            <th className="text-left">Value</th>
-            <td className="text-right">{punkBidEntered.value}</td>
+          <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
+            <th>Value</th>
+            <td>{punkBidEntered.value}</td>
           </tr>
-          <tr>
-            <th className="text-left">Transaction Hash</th>
-            <td className="text-right">{punkBidEntered.transactionHash}</td>
+          <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
+            <th>Transaction Hash</th>
+            <td>{punkBidEntered.transactionHash}</td>
           </tr>
         </tbody>
       </table>
