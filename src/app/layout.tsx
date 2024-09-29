@@ -33,20 +33,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StoreProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            disableTransitionOnChange
-          >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <StoreProvider>
             <ApolloProviderWrapper>
               <MetaMaskProviderWrapper>
                 <Navbar />
                 {children}
               </MetaMaskProviderWrapper>
             </ApolloProviderWrapper>
-          </ThemeProvider>
-        </StoreProvider>
+          </StoreProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

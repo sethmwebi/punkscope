@@ -23,7 +23,7 @@ export const dynamic = "force-dynamic";
 
 const truncateString = (str: string, maxLength = 12) => {
   if (str.length <= maxLength) return str;
-  const start = str.slice(0, 8);
+  const start = str.slice(0, 12);
   const end = str.slice(-8);
   return `${start}...${end}`;
 };
@@ -69,10 +69,16 @@ const Nft = () => {
           </tr>
           <tr className="flex w-full flex-col lg:flex-row lg:justify-between items-center">
             <th>Block Timestamp</th>
-            <td>
+            <td className="hidden lg:block">
               {format(
                 new Date(punkBidEntered.blockTimestamp * 1000),
-                "MM dd, yyyy HH:mm:ss",
+                "MMMM dd, yyyy HH:mm:ss",
+              )}
+            </td>
+            <td className="lg:hidden">
+              {format(
+                new Date(punkBidEntered.blockTimestamp * 1000),
+                "MM/dd/yyyy",
               )}
             </td>
           </tr>

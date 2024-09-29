@@ -34,21 +34,28 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-around h-[50px] border-b border-1 items-center px-5 lg:px-20">
-      <div className="">
+      <div className="hidden md:block">
         <Link href="/">
           <TextHoverEffect text="Punkscope" />
         </Link>
       </div>
-      <div className="flex-1">
+      <div className="md:hidden">
+        <Link href="/">
+          <span className="uppercase text-[#dd1818] font-black text-3xl">
+            ps
+          </span>
+        </Link>
+      </div>
+      <div className="w-[60%] flex justify-center">
         <Input
           type="search"
-          className="rounded-full h-8 w-full border border-red-800 focus-visible:ring-0 !outline-none "
+          className="rounded-full h-8 w-60 md:w-full border border-red-800 focus-visible:ring-0 !outline-none"
           placeholder="search bid nfts by address..."
           value={searchTerm}
           onChange={handleSearchInputChange}
         />
       </div>
-      <div className="flex flex-1 space-x-4 items-center justify-end">
+      <div className="flex ml-4 space-x-4 items-center justify-end">
         {connected && (
           <Link href="/dashboard">
             <span>Dashboard</span>
@@ -57,7 +64,7 @@ const Navbar = () => {
         {!connected && (
           <Button
             variant="secondary"
-            className="uppercase outline-none bg-gradient-to-l from-[#333333] to-[#dd1818] "
+            className="uppercase outline-none bg-gradient-to-l from-[#333333] to-[#dd1818]"
             onClick={connect}
           >
             connect
