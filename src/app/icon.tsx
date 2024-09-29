@@ -21,7 +21,8 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "black",
+          color: "whitesmoke",
+          borderRadius: "50%",
         }}
       >
         ps
