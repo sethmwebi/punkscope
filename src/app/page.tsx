@@ -8,7 +8,7 @@ import { format } from "date-fns";
 
 const GET_BIDS = gql`
   query MyQuery {
-    punkBidEntereds(first: 30, skip: 2, where: {}) {
+    punkBidEntereds {
       blockNumber
       blockTimestamp
       fromAddress
@@ -30,7 +30,7 @@ const HomePage = () => {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="mb-20 flex justify-center items-center h-screen">
         <HashLoader color="#dd1818" size={20} />
       </div>
     );

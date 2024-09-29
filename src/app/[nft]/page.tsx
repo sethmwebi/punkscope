@@ -72,7 +72,7 @@ const Nft = () => {
             <td>
               {format(
                 new Date(punkBidEntered.blockTimestamp * 1000),
-                "MMMM dd, yyyy HH:mm:ss",
+                "MM dd, yyyy HH:mm:ss",
               )}
             </td>
           </tr>
