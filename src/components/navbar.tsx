@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useSDK } from "@metamask/sdk-react";
 
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+// import { Input } from "./ui/input";
 import { TextHoverEffect } from "./ui/text-hover-effect";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
