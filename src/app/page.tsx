@@ -19,13 +19,12 @@ const GET_BIDS = gql`
     }
   }
 `;
-
 const displayShortened = (str: string) => {
   const start = str.slice(0, 8); // First 8 characters
   const end = str.slice(-8); // Last 6 characters
   return `${start}...${end}`; // Concatenate the parts
 };
-
+export const dynamic = "force-dynamic";
 const HomePage = () => {
   const { loading, error, data } = useQuery(GET_BIDS);
 

@@ -18,7 +18,7 @@ const GET_NFT = gql`
     }
   }
 `;
-
+export const dynamic = "force-dynamic";
 const Nft = () => {
   const { nft } = useParams();
 

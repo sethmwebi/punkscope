@@ -23,12 +23,6 @@ const Navbar = () => {
     }
   };
 
-  const handleSearch = (e: any) => {
-    e.preventDefault();
-    if (searchTerm) {
-      router.push(`/search?search=${encodeURIComponent(searchTerm)}`);
-    }
-  };
   return (
     <div className="flex justify-around h-[50px] border-b border-1 items-center px-5 lg:px-20">
       <div className="">

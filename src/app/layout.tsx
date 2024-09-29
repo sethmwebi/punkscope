@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Punkscope",
   description: "Website that shows stats on various NFTs",
 };
-
+export const dynamic = "force-dynamic";
 export default function RootLayout({
   children,
 }: Readonly<{
