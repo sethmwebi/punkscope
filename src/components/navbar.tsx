@@ -46,10 +46,10 @@ const Navbar = () => {
           </span>
         </Link>
       </div>
-      <div className="w-[60%] flex justify-center">
+      <div className="w-[50%] md:w-[60%] flex justify-center">
         <Input
           type="search"
-          className="rounded-full h-8 w-60 md:w-full border border-red-800 focus-visible:ring-0 !outline-none"
+          className="rounded-full h-8 md:w-full border border-red-800 focus-visible:ring-0 !outline-none"
           placeholder="search bid nfts by address..."
           value={searchTerm}
           onChange={handleSearchInputChange}
